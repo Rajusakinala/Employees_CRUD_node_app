@@ -9,7 +9,7 @@ router.post('/employees', async (req, res) => {
   try {
     await employee.save();
     res.status(201).send(req.body);
-    console.log('POST Requested');
+    console.log('new employee created');
   } catch (e) {
     res.send(e);
     console.log('error rised');
@@ -21,7 +21,7 @@ router.get('/employees', async (req, res) => {
   try {
     const employees = await Employee.find({});
     res.send(employees);
-    console.log('GET Requested');
+    console.log('GET Requested for all employees');
   } catch (err) {
     res.status(500).send(err);
   }
