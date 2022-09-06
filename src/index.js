@@ -1,11 +1,13 @@
 const express = require('express');
 require('./db/mongoose');
 const app = express();
-const employeeRouter = require('./routers/employee')
+const homeRouter = require('./routers/home');
+const employeeRouter = require('./routers/employee');
 const userRouter = require('./routers/user');
-const taskRouter = require('./routers/task')
+const taskRouter = require('./routers/task');
 
 app.use(express.json());
+app.use(homeRouter);
 app.use(employeeRouter);
 app.use(userRouter);
 app.use(taskRouter);
