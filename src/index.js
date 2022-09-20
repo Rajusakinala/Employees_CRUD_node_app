@@ -1,18 +1,15 @@
 const express = require('express');
 require('./db/mongoose');
+const cors = require('cors')
 const app = express();
+app.use(cors())
 const homeRouter = require('./routers/home');
-const employeeRouter = require('./routers/employee');
 const userRouter = require('./routers/user');
-const taskRouter = require('./routers/task');
 
 app.use(express.json());
 app.use(homeRouter);
-app.use(employeeRouter);
 app.use(userRouter);
-app.use(taskRouter);
-
-const port = process.env.PORT || 3006;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log('Server is up on port ' + port);
 });
